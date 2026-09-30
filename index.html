@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#0A0A0B">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kazoo">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Finanzas personales: movimientos, metas de ahorro, presupuestos y suscripciones.">
+  <title>Kazoo Cash</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar" id="topbar"></header>
+    <main id="view"></main>
+  </div>
+  <button class="fab" id="fab" data-action="fab" aria-label="Agregar"></button>
+  <nav class="tabbar" id="tabbar" aria-label="Secciones"></nav>
+  <div id="sheet-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="lock" aria-modal="true" role="dialog" aria-label="Bloqueo"></div>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+  <script src="app.js"></script>
+</body>
+</html>
