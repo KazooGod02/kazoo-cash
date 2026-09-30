@@ -2,20 +2,22 @@
 
 Finanzas personales minimalistas, siempre en modo oscuro. Funciona sin conexión y se instala en el iPhone como app.
 
-- **Resumen:** patrimonio, disponible vs. apartado en metas, ingresos/gastos del mes, tasa de ahorro, tendencia de 6 meses e indicadores (fondo de emergencia, gasto contra el mes pasado, peso de suscripciones).
-- **Movimientos:** gastos, ingresos y transferencias entre cuentas, con búsqueda y filtros por mes.
-- **Metas:** progreso, aporte mensual necesario según la fecha límite y fecha estimada al ritmo actual.
-- **Suscripciones:** próximo cobro, costo mensual y anual, registro automático del gasto, avisos por notificación y exportación a Calendario con alarmas.
+**App:** https://kazoogod02.github.io/kazoo-cash/
+
+## Funciones
+
+- **Resumen:** patrimonio (cuentas − deudas), disponible vs. apartado en metas, ingresos/gastos del mes, tasa de ahorro, próximos pagos, tendencia de 6 meses e indicadores (fondo de emergencia, gasto contra el mes pasado, peso de deudas y suscripciones).
+- **Movimientos:** gastos, ingresos y transferencias, con **etiquetas** (`#viaje`), **foto del ticket**, búsqueda y filtros por mes.
+- **Metas:** progreso, aporte mensual necesario según la fecha límite y fecha estimada al ritmo actual. Si la meta tiene una cuenta de ahorro, al aportar se registra una **transferencia real** desde otra cuenta.
+- **Deudas:** saldo, tasa, pago mensual y día de pago; cuándo quedas libre, intereses por pagar, **simulador “¿y si pago más?”** y orden de pago (avalancha o bola de nieve).
+- **Suscripciones e ingresos fijos:** próximo cobro, costo mensual y anual, **quincena (15 y fin de mes)**, registro automático, avisos y exportación a Calendario con alarmas.
 - **Presupuestos** por categoría con “cuánto puedes gastar al día”.
-- **Privacidad:** ocultar montos, código de acceso, datos solo en el dispositivo, respaldo JSON y exportación CSV.
+- **Sincronización entre dispositivos:** copia **cifrada** (AES-256, con tu frase) en un gist secreto de tu cuenta de GitHub.
+- **Privacidad:** ocultar montos, código de acceso, respaldo JSON (incluye fotos) y exportación CSV.
 
-## Publicar en GitHub Pages
+## Publicar cambios
 
-1. Crea un repositorio en GitHub (por ejemplo `kazoo-cash`) y sube todos estos archivos a la raíz.
-2. En el repositorio: **Settings › Pages › Build and deployment** → *Deploy from a branch* → rama `main`, carpeta `/ (root)`.
-3. En uno o dos minutos estará en `https://TU-USUARIO.github.io/kazoo-cash/`.
-
-Cada vez que publiques cambios, sube la versión en `sw.js` (`kazoo-v1` → `kazoo-v2`) para que el iPhone descargue la versión nueva.
+GitHub Pages publica automáticamente la rama `main`. Cada vez que cambies archivos, sube la versión en `sw.js` (`kazoo-v2` → `kazoo-v3`) para que el iPhone descargue la versión nueva.
 
 ## Instalar en el iPhone
 
@@ -25,11 +27,19 @@ Cada vez que publiques cambios, sube la versión en `sw.js` (`kazoo-v1` → `kaz
 
 ## Sobre los avisos
 
-iOS permite notificaciones en apps web instaladas (iOS 16.4 o posterior), pero una app sin servidor solo puede revisar tus cobros cuando la abres. Por eso hay dos capas:
+iOS permite notificaciones en apps web instaladas (iOS 16.4 o posterior), pero una app sin servidor solo revisa tus cobros cuando la abres. Por eso hay dos capas:
 
-- **Notificación y globo en el ícono** cuando abres la app y un cobro está dentro del periodo de aviso.
-- **Agregar cobros al Calendario** (Ajustes o el ícono de calendario en Suscripciones): crea eventos repetidos con alarma, que avisan aunque nunca abras la app.
+- **Notificación y globo en el ícono** al abrir la app, si un cobro o pago de deuda está dentro del periodo de aviso.
+- **Agregar al Calendario** (Ajustes o el ícono de calendario en Suscripciones): eventos repetidos con alarma que avisan aunque no abras la app.
+
+## Sincronizar
+
+1. En GitHub crea un token *classic* con el permiso **gist** (el botón “Abrir GitHub” en la app lo deja preconfigurado).
+2. En **Ajustes › Sincronización** pega el token y elige una frase de cifrado.
+3. En el otro dispositivo usa el mismo token y la misma frase.
+
+Los datos se cifran antes de salir del teléfono; sin la frase nadie puede leerlos. Las fotos de tickets no se sincronizan (van en el respaldo `.json`).
 
 ## Datos
 
-Todo se guarda en `localStorage` del dispositivo. Si borras los datos de Safari o desinstalas la app, se pierden: exporta un respaldo de vez en cuando (**Ajustes › Datos**).
+Todo se guarda en el dispositivo (`localStorage` e IndexedDB para fotos). Si borras los datos de Safari se pierden: activa la sincronización o exporta un respaldo de vez en cuando.

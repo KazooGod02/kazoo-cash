@@ -271,7 +271,7 @@ button.row:active, label.row:active { background: var(--surface-2); }
 .amount-field input {
   background: none; border: 0; outline: none; color: var(--text);
   font-family: inherit; font-size: 50px; font-weight: 300; line-height: 1.1; letter-spacing: -.035em; text-align: center;
-  width: 100%; max-width: 280px; padding: 0; caret-color: var(--accent);
+  width: 1.4ch; min-width: 1.4ch; max-width: 85%; padding: 0; caret-color: var(--accent);
 }
 .amount-field input::placeholder { color: var(--faint); }
 
@@ -403,3 +403,36 @@ button.row:active, label.row:active { background: var(--surface-2); }
 
 .foot { text-align: center; color: var(--faint); font-size: 12.5px; margin-top: 28px; line-height: 1.6; }
 .row.plain .row-sub { white-space: normal; }
+[hidden] { display: none !important; }
+
+/* ─── Etiquetas ─── */
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 2px; }
+.tag {
+  font-size: 12.5px; color: var(--muted); padding: 5px 10px; border-radius: 99px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.sheet .tag { background: var(--surface-2); }
+.tag:active { color: var(--text); }
+.search-sum { font-size: 13px; color: var(--muted); margin: 14px 6px 0; }
+.ico.tiny { width: 13px; height: 13px; vertical-align: -1px; color: var(--muted); }
+
+/* ─── Ticket ─── */
+.receipt { display: flex; align-items: center; gap: 14px; background: var(--surface-2); border-radius: 14px; padding: 10px; }
+.receipt img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; cursor: zoom-in; }
+.receipt b { display: block; font-weight: 500; margin-bottom: 4px; }
+.receipt .link { font-size: 13.5px; }
+.receipt .link.neg { color: var(--neg); }
+.btn .ico { width: 18px; height: 18px; }
+.viewer {
+  position: fixed; inset: 0; z-index: 350; background: rgba(0, 0, 0, .94);
+  display: grid; place-items: center; padding: calc(var(--safe-t) + 16px) 16px calc(var(--safe-b) + 16px);
+  opacity: 0; transition: opacity .2s;
+}
+.viewer.show { opacity: 1; }
+.viewer img { max-width: 100%; max-height: 100%; border-radius: 12px; }
+.viewer .icon-btn { position: absolute; top: calc(var(--safe-t) + 14px); right: 16px; }
+
+/* ─── Deudas ─── */
+.sim { background: var(--surface-2); border-color: transparent; }
+.sim .field input { background: var(--surface-3); }
+.goal-hero p { margin-top: 2px; }

@@ -1,6 +1,6 @@
 // Kazoo Cash — service worker: funciona sin conexión y muestra los avisos.
 // Sube el número de versión cada vez que publiques cambios.
-const CACHE = 'kazoo-v1';
+const CACHE = 'kazoo-v2';
 const ASSETS = [
   './',
   './index.html',
